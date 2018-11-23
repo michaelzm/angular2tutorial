@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ProductService} from './product.service';
 
 @Component({
   selector: 'products',
@@ -13,6 +14,10 @@ import { Component } from '@angular/core';
 })
 
 export class ProductsComponent{
-  products = ["Angular 2", "Angular 1","Angular 5000"];
+  products;
+
+  constructor(productService: ProductService){
+    this.products = productService.getProducts();
+  }
 
 }
